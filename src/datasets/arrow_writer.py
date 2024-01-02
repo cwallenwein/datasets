@@ -397,8 +397,8 @@ class ArrowWriter:
         else:
             schema = schema.with_metadata({})
         self._schema = schema
-        options = pa.ipc.IpcWriteOptions(compression="lz4")
-        print("Compressing with lz4")
+        options = pa.ipc.IpcWriteOptions(compression="zstd")
+        print("Compressing with zstd")
         self.pa_writer = self._WRITER_CLASS(self.stream, schema, options=options)
 
     @property
